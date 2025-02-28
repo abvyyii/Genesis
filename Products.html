@@ -124,11 +124,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 let itemRow = `
                     <div class="checkout-item">
-                        <img src="${imageSrc}" alt="${name}">
+                        <img src="${imageSrc}" alt="">
                         <div>
                             <p><strong>${name}</strong></p>
                             <p>Qty: ${quantity}</p>
-                            <p>Total: $${price}</p>
+                            <p>Total: ${price}</p>
                         </div>
                     </div>`;
                 checkoutItems.innerHTML += itemRow;
