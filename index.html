@@ -1,15 +1,88 @@
-<html>
-  <head><link rel= "stylesheet" href="style.css"></head>
-  <div class="navbar">
-    <label class="logo"></label>
-    <div class="links">
-      <ul>
-        <Li><a href="index.html">Home</a></Li>
-        <Li><a href="index.html">Home</a></Li>
-      </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genesis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <div class="navbar">
+        <input type="checkbox" id="cheak">
+        <label for="cheak" class="cheakbtn"><i class="fa-solid fa-bars"></i></label>
+        <div class="logo"><a href="home.html"><img src="icons/Logo.png"></a></div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search products...(doesn't work for now)" oninput="searchProducts()">
+            <button class="searchbtn"><img src="icons/loupe.png"></button>
+        </div>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="Products.html">Products</a></li>
+            <li><a href="details.html">Details</a></li>
+        </ul>
     </div>
-  </div>
-  <bodY>
-    
-  </bodY>
-</html>
+    <div class="logcontainer">
+        <br>
+        <br>
+        <br>
+        <div class="txt">
+            SignUp To Make Your Experience Better!
+            </div>
+    <button id="log" onclick="openlogin()" class="btn">SignUp</button>
+        <div class="login" id="login1">
+            <br>
+            <br>
+            <form method="POST" action="validate.php">
+                <table>
+                <tr>
+                    <th>
+                    Username:
+                    </th>
+                    <td><input type="text" placeholder="Username" class="user" name="username" required></td>
+                </tr>
+                <tr>
+                    <th>First Name:</th>
+                    <td><input type="text" placeholder="FirstName" class="user" name="FirstName" required></td>
+                </tr>
+                <tr>
+                    <th>Last Name:</th>
+                    <td><input type="text" placeholder="LastName" class="user" name="LastName" required></td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td><input type="email" placeholder="someone@domain.com" class="user" name="email" required></td>
+                </tr>
+                <tr>
+                    <th>Phone No.:</th>
+                    <td><input type="Number" placeholder="number" class="user" name="phno" required></td>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <td><input type="password" placeholder="password" class="user" name="pass" required></td>
+                </tr>
+            </table>
+            <br>
+                <button type="submit" class="mbtn">Log In</button>
+            <button type="button" class="mbtn" onclick="closelogin()">Close</button>
+        </form>
+        </div>
+    </div>
+        <script>
+            let log = document.getElementById("log");
+            let login1=document.getElementById("login1");
+            function openlogin()
+{
+    login1.classList.add("open-login");
+    log.classList.add("rem-btn");
+}
+function closelogin()
+{
+    login1.classList.remove("open-login");
+    log.classList.remove("rem-btn");
+}
+
+
+        </script>
+        </body>
+        </html>

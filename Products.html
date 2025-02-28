@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genesis</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <div class="navbar">
+        <input type="checkbox" id="cheak">
+        <label for="cheak" class="cheakbtn"><i class="fa-solid fa-bars"></i></label>
+        <div class="logo"><a href="home.html"><img src="icons/Logo.png"></a></div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search products...(doesn't work for now)" oninput="searchProducts()">
+            <button class="searchbtn"><img src="icons/loupe.png"></button>
+        </div>
+        
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="Products.html">Products</a></li>
+            <li><a href="details.html">Details</a></li>
+        </ul>
+        <div class="icons">
+            <button onclick="openMycart()" id="opencart"><img src="icons/shopping-cart.png"></button>
+            <span>0</span>
+            <div class="cartTab" id="Cart">
+                <h1>Cart</h1>
+                <div class="listcart">
+                    <div class="item">
+                        <div class="image">
+                            <img>
+                        </div>
+                        <div class="name">name</div>
+                        <div class="totalPrice">2000</div>
+                        <div class="quantity">
+                            <span class="minus">-</span>
+                            <span>1</span>
+                            <span class="plus">+</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn1">
+                    <button class="close" onclick="closeCarttab()">Close</button>
+                    <button class="checkout" onclick="openCheckout()">CheckOut</button>
+                </div>
+            </div>
+            <button onclick="fetchProfile()"><img src="icons/user.png"></button>
+<div class="MyProfile" id="Profile">
+    <h1>Hello!</h1>
+    <div id="profileData">Loading...</div>
+    <div class="btn1">
+        <button class="close" onclick="closeProfileTab()">Close</button>
+    </div>
+</div>
+
+        </div>
+    </div>
+    <main class="container">
+        <h2>Featured Products</h2>
+        <div class="listProduct" id="listProduct"></div>
+<!-- Checkout Modal -->
+<div id="checkoutModal" class="checkout-modal">
+    <div class="modal-content">
+        <h2>Confirm Checkout</h2>
+        <div id="checkoutItems"></div> <!-- Items will be displayed here -->
+        <p>Are you sure you want to proceed with the checkout?</p>
+        <div class="btn1">
+            <button class="confirm" onclick="confirmCheckout()">Confirm & Pay</button>
+            <button class="close" onclick="closeCheckout()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+    </main>
+    <script src="listcartadd.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    let carttab = document.getElementById("Cart");
+    let profile = document.getElementById("Profile");
+    let checkoutModal = document.getElementById("checkoutModal");
+    let checkoutItems = document.getElementById("checkoutItems");
+
+    // Open Cart
+    window.openMycart = function() {
+        carttab.classList.add("open-carttab");
+    };
+
+    // Close Cart
+    window.closeCarttab = function() {
+        carttab.classList.remove("open-carttab");
+    };
+
+    // Fetch Profile
+    window.fetchProfile = function() {
+        fetch('fetch_profile.php')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("profileData").innerHTML = data;
+            profile.classList.add("open-profile");
+        })
+        .catch(error => console.error('Error fetching profile:', error));
+    };
+
+    // Close Profile Tab
+    window.closeProfileTab = function() {
+        profile.classList.remove("open-profile");
+    };
+
+    // Open Checkout Modal
+    window.openCheckout = function() {
+        let cartItems = document.querySelectorAll(".listcart .item");
+        checkoutItems.innerHTML = ""; // Clear previous content
+
+        if (cartItems.length === 0) {
+            checkoutItems.innerHTML = "<p>Your cart is empty.</p>";
+        } else {
+            cartItems.forEach(item => {
+                let imageSrc = item.querySelector("img").src;
+                let name = item.querySelector(".name").innerText;
+                let quantity = item.querySelector(".quantity span:nth-child(2)").innerText;
+                let price = item.querySelector(".totalPrice").innerText;
+
+                let itemRow = `
+                    <div class="checkout-item">
+                        <img src="${imageSrc}" alt="${name}">
+                        <div>
+                            <p><strong>${name}</strong></p>
+                            <p>Qty: ${quantity}</p>
+                            <p>Total: $${price}</p>
+                        </div>
+                    </div>`;
+                checkoutItems.innerHTML += itemRow;
+            });
+        }
+
+        checkoutModal.style.display = "block";
+    };
+
+    // Close Checkout Modal
+    window.closeCheckout = function() {
+        checkoutModal.style.display = "none";
+    };
+
+    // Confirm Checkout Process
+    window.confirmCheckout = function() {
+        alert("Checkout successful! Your order has been placed.");
+        checkoutModal.style.display = "none";
+    };
+    
+});
+
+    </script>
+    
+</body>
+</html>

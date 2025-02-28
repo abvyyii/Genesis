@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Black Formal Shirt For Women",
+        "price": 1200,
+        "image": "assets/Black Formal Shirt For Women.png"
+    },
+    {
+        "id": 2,
+        "name": "Cape Wool Silk Cashmere Blend",
+        "price": 900,
+        "image": "assets/Cape Wool Silk Cashmere Blend.png"
+    },
+    {
+        "id": 3,
+        "name": "New Model Summer Baggy Trousers For Women",
+        "price": 1099,
+        "image": "assets/New Model Summer Baggy Trousers For Women.png"
+    },
+    {
+        "id": 4,
+        "name": "Warm Woolen High-Neck Sweater for Women Fashionable",
+        "price": 899,
+        "image": "assets/Warm Woolen High-Neck Sweater for Women Fashionable.png"
+    },
+    {
+        "id": 5,
+        "name": "Green Coloured Straight Kurti With Pant And Shawl Set",
+        "price": 1500,
+        "image": "assets/Green Coloured Straight Kurti With Pant And Shawl Set.png"
+    },
+    {
+        "id": 6,
+        "name": "Men's Stylish Vintage Leather Jacket",
+        "price": 2100,
+        "image": "assets/Men's Stylish Vintage Leather Jacket.png"
+    },
+    {
+        "id": 7,
+        "name": "Tshirt,Tanktop & Halfpant set of 3pcs",
+        "price": 1499,
+        "image": "assets/Tshirt,Tanktop & Halfpant set of 3pcs.png"
+    },
+    {
+        "id": 8,
+        "name": "Washlight Dark Blue Jeans Loose Fit",
+        "price": 1200,
+        "image": "assets/Washlight Dark Blue Jeans Loose Fit.png"
+    },
+    {
+        "id": 9,
+        "name": "White and Grey Color Printed Cashmere Shawl For Women",
+        "price": 800,
+        "image": "assets/White and Grey Color Printed Cashmere Shawl For Women.png"
+    },
+    {
+        "id": 10,
+        "name": "Wraon Black Solid Premium Baggy Jeans For Men Fashion",
+        "price": 1700,
+        "image": "assets/Wraon Black Solid Premium Baggy Jeans For Men Fashion.png"
+    }
+]
